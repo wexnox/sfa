@@ -6,10 +6,10 @@ Auth::routes();
 //    Route::get(['/profile', 'HomeController@index'])->name('profile');
 //});
 ////user index
-//Route::get('/', [
-//    'uses' => 'Product\ClientController@getIndex',
-//    'as' => 'product.index'
-//]);
+Route::get('/', [
+    'uses' => 'Product\ProductClientController@getIndex',
+    'as' => 'product.index'
+]);
 //Route::name('category')->get('category/{category}', 'Product\ClientController@index');
 //Route::get('products/{id}', [
 //    'uses' => 'Product\ClientController@show',

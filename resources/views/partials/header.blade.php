@@ -2,7 +2,7 @@
     <div class="container">
         <div class="col-sm-6">
             <a class="navbar-brand" href="/" tabindex="20" title="Tilbake.">
-                <img class="logo img-responsiv" src="{{ asset('images/CompanyName.png') }}" alt="Tilbake.">
+                {{--<img class="logo img-responsiv" src="{{ asset('images/CompanyName.png') }}" alt="Tilbake.">--}}
             </a>
         </div>
         <form class="form-inline my-2 my-lg-0">
@@ -29,9 +29,9 @@
                         <i class="fas fa-list"></i> Alle produkter</a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        @foreach($categories as $category)
-                            <a class="dropdown-item" href="{{ url('category', $category->id) }}"> {{ $category->name }}</a>
-                        @endforeach
+                        {{--@foreach($categories as $category)--}}
+                            {{--<a class="dropdown-item" href="{{ url('category', $category->id) }}"> {{ $category->name }}</a>--}}
+                        {{--@endforeach--}}
                     </div>
 
                 </li>
@@ -50,7 +50,7 @@
                 <ul class="navbar-nav mr-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('product.shoppingCart') }}"><i class="fas fa-shopping-cart"></i> Handlekurv  <span class="badge"> {{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span> </a>
+                        {{--<a class="nav-link" href="{{ route('product.shoppingCart') }}"><i class="fas fa-shopping-cart"></i> Handlekurv  <span class="badge"> {{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span> </a>--}}
                     </li>
 
                     {{--Start: UserDropdown Not logged inn--}}
@@ -82,7 +82,7 @@
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                                <a class="dropdown-item" href="{{ url('/profile') }}">
+                                {{--<a class="dropdown-item" href="{{ url('/profile') }}">--}}
                                     <i class="fas fa-user-circle"></i> Bruker konto
                                 </a>
 

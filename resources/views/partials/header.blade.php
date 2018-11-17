@@ -2,7 +2,7 @@
     <div class="container">
         <div class="col-sm-6">
             <a class="navbar-brand" href="/" tabindex="20" title="Tilbake.">
-                {{--<img class="logo img-responsiv" src="{{ asset('images/CompanyName.png') }}" alt="Tilbake.">--}}
+                <img class="logo img-responsiv" src="{{ asset('images/CompanyName.png') }}" alt="Tilbake.">
             </a>
         </div>
         <form class="form-inline my-2 my-lg-0">

@@ -16,34 +16,34 @@ Route::get('/', [
 //    'as' => 'product.show'
 //]);
 //// End User profile
-//// Shopping Cart
-//Route::get('/add-to-cart/{id}', [
-//    'uses' => 'Product\ClientController@getAddToCart',
-//    'as' => 'product.addToCart'
-//]);
-//Route::get('reduce/{id}',[
-//    'uses' => 'Product\ClientController@getReduceByOne',
-//    'as' => 'product.reduceByOne'
-//]);
-//Route::get('/remove/{id}', [
-//    'uses' => 'Product\ClientController@getRemoveItem',
-//    'as' => 'product.remove'
-//]);
-//Route::get('/shopping-cart', [
-//    'uses' => 'Product\ClientController@getCart',
-//    'as' => 'product.shoppingCart'
-//]);
-//Route::get('/checkout', [
-//    'uses' => 'Product\ClientController@getCheckout',
-//    'as' => 'checkout',
-//    'middleware' => 'auth'
-//]);
-//Route::post('/checkout', [
-//    'uses' => 'Product\ClientController@postCheckout',
-//    'as' => 'checkout',
-//    'middleware' => 'auth'
-//]);
-//
+// Shopping Cart
+Route::get('/add-to-cart/{id}', [
+    'uses' => 'Product\ClientController@getAddToCart',
+    'as' => 'product.addToCart'
+]);
+Route::get('reduce/{id}',[
+    'uses' => 'Product\ClientController@getReduceByOne',
+    'as' => 'product.reduceByOne'
+]);
+Route::get('/remove/{id}', [
+    'uses' => 'Product\ClientController@getRemoveItem',
+    'as' => 'product.remove'
+]);
+Route::get('/shopping-cart', [
+    'uses' => 'Product\ClientController@getCart',
+    'as' => 'product.shoppingCart'
+]);
+Route::get('/checkout', [
+    'uses' => 'Product\ClientController@getCheckout',
+    'as' => 'checkout',
+    'middleware' => 'auth'
+]);
+Route::post('/checkout', [
+    'uses' => 'Product\ClientController@postCheckout',
+    'as' => 'checkout',
+    'middleware' => 'auth'
+]);
+
 ////// Admin crud
 ///// TODO: Setup group middleware, Auth
 //Route::group(['prefix' => 'admin', 'as' => 'admin', 'middleware' => 'auth'], function (){

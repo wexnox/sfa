@@ -2,9 +2,9 @@
 Auth::routes();
 //
 //// User profile
-//Route::group(['middleware' => 'auth'], function (){
-//    Route::get(['/profile', 'HomeController@index'])->name('profile');
-//});
+Route::group(['middleware' => 'auth'], function (){
+    Route::get('/profile', 'HomeController@index')->name('profile');
+});
 ////user index
 Route::get('/', [
     'uses' => 'Product\ProductClientController@getIndex',

@@ -82,7 +82,7 @@
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                                {{--<a class="dropdown-item" href="{{ url('/profile') }}">--}}
+                                <a class="dropdown-item" href="{{ url('/profile') }}">
                                     <i class="fas fa-user-circle"></i> Bruker konto
                                 </a>
 

@@ -10,36 +10,36 @@ Route::get('/', [
     'uses' => 'Product\ProductClientController@getIndex',
     'as' => 'product.index'
 ]);
-//Route::name('category')->get('category/{category}', 'Product\ClientController@index');
-//Route::get('products/{id}', [
-//    'uses' => 'Product\ClientController@show',
-//    'as' => 'product.show'
-//]);
+Route::name('category')->get('category/{category}', 'Product\ClientController@index');
+Route::get('products/{id}', [
+    'uses' => 'Product\ClientController@show',
+    'as' => 'product.show'
+]);
 //// End User profile
 // Shopping Cart
 Route::get('/add-to-cart/{id}', [
-    'uses' => 'Product\ClientController@getAddToCart',
+    'uses' => 'Product\ProductClientController@getAddToCart',
     'as' => 'product.addToCart'
 ]);
 Route::get('reduce/{id}',[
-    'uses' => 'Product\ClientController@getReduceByOne',
+    'uses' => 'Product\ProductClientController@getReduceByOne',
     'as' => 'product.reduceByOne'
 ]);
 Route::get('/remove/{id}', [
-    'uses' => 'Product\ClientController@getRemoveItem',
+    'uses' => 'Product\ProductClientController@getRemoveItem',
     'as' => 'product.remove'
 ]);
 Route::get('/shopping-cart', [
-    'uses' => 'Product\ClientController@getCart',
+    'uses' => 'Product\ProductClientController@getCart',
     'as' => 'product.shoppingCart'
 ]);
 Route::get('/checkout', [
-    'uses' => 'Product\ClientController@getCheckout',
+    'uses' => 'Product\ProductClientController@getCheckout',
     'as' => 'checkout',
     'middleware' => 'auth'
 ]);
 Route::post('/checkout', [
-    'uses' => 'Product\ClientController@postCheckout',
+    'uses' => 'Product\ProductClientController@postCheckout',
     'as' => 'checkout',
     'middleware' => 'auth'
 ]);

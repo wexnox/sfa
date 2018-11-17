@@ -2,7 +2,7 @@
 Auth::routes();
 //
 //// User profile
-Route::group(['middleware' => 'auth'], function (){
+Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile', 'HomeController@index')->name('profile');
 });
 ////user index
@@ -10,9 +10,10 @@ Route::get('/', [
     'uses' => 'Product\ProductClientController@getIndex',
     'as' => 'product.index'
 ]);
-Route::name('category')->get('category/{category}', 'Product\ClientController@index');
+Route::name('category')->get('category/{category}', 'Product\ProductClientController@index');
+
 Route::get('products/{id}', [
-    'uses' => 'Product\ClientController@show',
+    'uses' => 'Product\ProductClientController@show',
     'as' => 'product.show'
 ]);
 //// End User profile
@@ -21,7 +22,7 @@ Route::get('/add-to-cart/{id}', [
     'uses' => 'Product\ProductClientController@getAddToCart',
     'as' => 'product.addToCart'
 ]);
-Route::get('reduce/{id}',[
+Route::get('reduce/{id}', [
     'uses' => 'Product\ProductClientController@getReduceByOne',
     'as' => 'product.reduceByOne'
 ]);

@@ -16,7 +16,7 @@ class Cart extends Model
      */
     public function __construct($oldCart)
     {
-        if ($oldCart){
+        if ($oldCart) {
             $this->items = $oldCart->items;
             $this->totalQty = $oldCart->totalQty;
             $this->totalPrice = $oldCart->totalPrice;
@@ -27,9 +27,8 @@ class Cart extends Model
     {
         $storedItem = ['qty' => 0, 'price' => $item->price, 'item' => $item];
 
-        if ($this->items){
-            if (array_key_exists($id, $this->items))
-            {
+        if ($this->items) {
+            if (array_key_exists($id, $this->items)) {
                 $storedItem = $this->items[$id];
             }
         }
@@ -40,18 +39,20 @@ class Cart extends Model
         $this->totalPrice += $item->price;
     }
 
-    public function reduceByOne($id){
+    public function reduceByOne($id)
+    {
         $this->items[$id]['qty']--;
         $this->items[$id]['price'] -= $this->items[$id]['item']['price'];
         $this->totalQty--;
         $this->totalPrice -= $this->items[$id]['item']['price'];
 
-        if ($this->items[$id]['qty'] <=0 ){
+        if ($this->items[$id]['qty'] <= 0) {
             unset($this->items[$id]);
         }
     }
 
-    public function removeItem($id){
+    public function removeItem($id)
+    {
         $this->totalQty -= $this->items[$id]['qty'];
         $this->totalPrice -= $this->items[$id]['price'];
         unset($this->items[$id]);

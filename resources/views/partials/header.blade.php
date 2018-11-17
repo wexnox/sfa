@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-expand-lg navbar-light bg-light" >
+<nav class="navbar navbar-expand-md navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <div class="col-sm-6">
             <a class="navbar-brand" href="/" tabindex="20" title="Tilbake.">
@@ -21,16 +21,16 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                {{--TODO: Lage categories @foreach --}}
-
                 {{--id="navbarDropdown"--}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-list"></i> Alle produkter</a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         @foreach($categories as $category)
-                            <a class="dropdown-item" href="{{ url('category', $category->id) }}"> {{ $category->name }}</a>
+                            <a class="dropdown-item"
+                               href="{{ url('category', $category->id) }}"> {{ $category->name }}</a>
                         @endforeach
                     </div>
 
@@ -50,13 +50,17 @@
                 <ul class="navbar-nav mr-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('product.shoppingCart') }}"><i class="fas fa-shopping-cart"></i> Handlekurv  <span class="badge"> {{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span> </a>
+                        <a class="nav-link" href="{{ route('product.shoppingCart') }}"><i
+                                class="fas fa-shopping-cart"></i> Handlekurv <span
+                                class="badge"> {{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span>
+                        </a>
                     </li>
 
                     {{--Start: UserDropdown Not logged inn--}}
                     <li class="nav-item dropdown">
                         @guest
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-user"></i> Brukerkonto
                             </a>
 
@@ -76,7 +80,8 @@
                     <li class="nav-item dropdown">{{--Start: UserDropdown logged inn--}}
 
                         @auth
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-user"></i> {{ Auth::user()->name }}
                             </a>
 
@@ -87,10 +92,12 @@
                                 </a>
 
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fa fa-sign-out-alt"></i> {{ __('Logout') }}
                                 </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      style="display: none;">
                                     @csrf
                                 </form>
                             </div>

@@ -7,9 +7,9 @@
     <div class="col-sm-6 col-md-4">
         <h1>Checkout</h1>
         <h4>Your Total: Kr {{ $total }}</h4>
-        <div id="charge-error" class="alert alert-danger {{ !Session::has('error') ? 'hidden' : '' }}">
-            {{ Session::get('error') }}
-        </div>
+        {{--<div id="charge-error" class="alert alert-danger {{ !Session::has('error') ? 'hidden' : '' }}">--}}
+            {{--{{ Session::get('error') }}--}}
+        {{--</div>--}}
         <form action="{{ route('checkout') }}" method="post" id="checkout-form">
             <div class="form-row">
                 <div class="form-group col-md-12">

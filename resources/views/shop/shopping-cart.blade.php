@@ -12,7 +12,7 @@
                         <li class="list-group-item">
                             <span class="badge">{{ $product['qty'] }}</span>
                             <strong>{{$product['item']['title'] }}</strong>
-                            <span class="label label-success">{{ $product['pris'] }}</span>
+                            <span class="label label-success">{{ $product['price'] }}</span>
                             <div class="btn-group">
                                 <button class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown">Action </button>
                                 <ul class="dropdown-menu">
@@ -27,7 +27,7 @@
         </div>
         <div class="row">
             <div class="col-sm-6 col-md6 col-md-offset-3 col-sm-offset-3">
-                <strong>Total {{ $totalPris }},-</strong>
+                <strong>Total {{ $totalPrice }},-</strong>
             </div>
         </div>
         <hr>

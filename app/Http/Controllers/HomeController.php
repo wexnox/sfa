@@ -24,12 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $orders = Auth::user ()->orders;
-        $orders->transform(function ($order, $key){
-            $order->cart = unserialize ($order->cart);
+        $orders = Auth::user()->orders;
+        $orders->transform(function ($order, $key) {
+            $order->cart = unserialize($order->cart);
             return $order;
         });
 
-        return view ('user.profile', ['orders' => $orders]);
+        return view('user.profile', ['orders' => $orders]);
     }
 }

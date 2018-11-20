@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-    {{--TODO: styling--}}
     <div class="container">
         <div class="row">
             <div class="col-md-12">

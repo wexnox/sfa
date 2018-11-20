@@ -22,7 +22,7 @@ class ProductClientController extends Controller
     //Routing::URI = /, Name product.index
     public function getIndex()
     {
-        $products = Product::all();
+        $products = Product::paginate(9);
         $categories = Category::all();
         return view('shop.index')
             ->with(['products' => $products])
@@ -31,10 +31,18 @@ class ProductClientController extends Controller
 
     public function index($id)
     {
+//        $items = Category::where('id', $id)->with('product')->get(); // Original
+
+        $products = Product::paginate(2);
+//        $items = Category::where('id', $id)->with('product')->get();
         $items = Category::where('id', $id)->with('product')->get();
 
-        return view('products.index', compact('items', 'value'));
+//        $products = Product::paginate(2);
 
+//        return view('products.index', compact('items','value')); // Orginal
+        return view('products.index', compact('items', 'value', ['products' => $products] ));
+//            ->with(['products' => $products]);
+//            ->with(['categories' => $categories]);
     }
 
     public function show($id)

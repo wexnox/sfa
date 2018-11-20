@@ -33,14 +33,14 @@ class ProductClientController extends Controller
     {
 //        $items = Category::where('id', $id)->with('product')->get(); // Original
 
-        $products = Product::paginate(2);
+//        $value = Product::paginate(2);
 //        $items = Category::where('id', $id)->with('product')->get();
-        $items = Category::where('id', $id)->with('product')->get();
-
+//        $items = Category::where('id', $id)->with('product')->get();
+        $items = Category::where('id', $id)->paginate(2);
 //        $products = Product::paginate(2);
 
 //        return view('products.index', compact('items','value')); // Orginal
-        return view('products.index', compact('items', 'value', ['products' => $products] ));
+        return view('products.index', compact('items', 'value'));
 //            ->with(['products' => $products]);
 //            ->with(['categories' => $categories]);
     }

@@ -31,18 +31,9 @@ class ProductClientController extends Controller
 
     public function index($id)
     {
-//        $items = Category::where('id', $id)->with('product')->get(); // Original
+        $items = Category::where('id', $id)->with('product')->get(); // Original
 
-//        $value = Product::paginate(2);
-//        $items = Category::where('id', $id)->with('product')->get();
-//        $items = Category::where('id', $id)->with('product')->get();
-        $items = Category::where('id', $id)->paginate(2);
-//        $products = Product::paginate(2);
-
-//        return view('products.index', compact('items','value')); // Orginal
-        return view('products.index', compact('items', 'value'));
-//            ->with(['products' => $products]);
-//            ->with(['categories' => $categories]);
+        return view('products.index', compact('items','value')); // Orginal
     }
 
     public function show($id)

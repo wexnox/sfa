@@ -5,19 +5,20 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile', 'HomeController@index')->name('profile');
 });
-////user index
+//// Main Controller
 Route::get('/', [
-    'uses' => 'Client\ProductController@getIndex',
-    'as' => 'product.index'
+    'uses' => 'Client\MainController@Index',
+    'as' => 'index'
 ]);
-Route::name('category')->get('category/{category}', 'Client\ProductController@index');
-
+//// Categories Controller
+Route::name('category')->get('category/{category}', 'Client\CategoriesController@index');
+//// ProductController
 Route::get('products/{id}', [
     'uses' => 'Client\ProductController@show',
     'as' => 'product.show'
 ]);
-//// End User profile
-// Shopping Cart
+
+// Cart Controller
 Route::get('/add-to-cart/{id}', [
     'uses' => 'Client\CartController@getAddToCart',
     'as' => 'product.addToCart'
@@ -34,6 +35,7 @@ Route::get('/shopping-cart', [
     'uses' => 'Client\CartController@getCart',
     'as' => 'product.shoppingCart'
 ]);
+//// Order Controller
 Route::get('/checkout', [
     'uses' => 'Client\CartController@getCheckout',
     'as' => 'checkout',

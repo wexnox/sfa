@@ -8,7 +8,7 @@
     @endif
     <div class="container">
         <div class="row">
-            {{--@if(count($products))--}}
+            @if(count($categories))
                 <table class="table table-hover table-responsive">
                     <thead>
                     <tr>
@@ -43,9 +43,9 @@
                     </tbody>
                 </table>
                 {{--{{ $products->links() }}--}}
-            {{--@else--}}
-                {{--<h6>No products in storage</h6>--}}
-            {{--@endif--}}
+            @else
+                <h6>No products in storage</h6>
+            @endif
         </div>
     </div>
 

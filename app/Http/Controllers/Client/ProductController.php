@@ -12,21 +12,6 @@ use View;
 class ProductController extends Controller
 {
 
-    public function getIndex()
-    {
-        $products = Product::with(['category'])->paginate(6);
-        $categories = Category::get();
-
-        return view('shop.index', compact('products', 'categories'));
-    }
-
-    public function index($id)
-    {
-        $categories = Category::where('id', $id)->with('product')->get();
-//        $products = Product::paginate(2);
-        return view('products.index', compact('categories', 'product'));
-    }
-
     public function show($id)
     {
         // get the product

@@ -1,54 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Product;
+namespace App\Http\Controllers\Client;
 
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Stripe\Charge;
 use Stripe\Stripe;
 use App\Models\Cart;
-use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
 use Exception;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Auth;
 use Illuminate\Support\Facades\Session;
 use Validator;
 use View;
 
-class ProductClientController extends Controller
+class CartController extends Controller
 {
-    /** Shopping Cart **/
-    //Routing::URI = /, Name product.index
-    public function getIndex()
-    {
-        $products = Product::all();
-        $categories = Category::all();
-        return view('shop.index')
-            ->with(['products' => $products])
-            ->with(['categories' => $categories]);
-    }
-
-    public function index($id)
-    {
-        $items = Category::where('id', $id)->with('product')->get();
-
-        return view('products.index', compact('items', 'value'));
-
-    }
-
-    public function show($id)
-    {
-        // get the product
-        $product = Product::findOrFail($id);
-        $categories = Category::all();
-
-        //show the view and pass the product to it
-        return View('products.show')
-            ->with('product', $product)
-            ->with('categories', $categories);
-    }
-
     public function getAddToCart(Request $request, $id)
     {
         $product = Product::findOrFail($id);

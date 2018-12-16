@@ -12,18 +12,16 @@ class ProductTableSeeder extends Seeder
      */
     public function run()
     {
-        $categories = ['Hovedkort', 'Prosessor', 'Minnebrikker', 'Kontrollere', 'Skjermkort', 'Stromforsyning', 'Skjerm', 'Kabinett'];
-        foreach ($categories as $category) {
-            # First fetch category Id
-            $category = DB::table('categories')->where('name', '=', trim(strtolower($category)))->get();
-            $category_id = $category[0]->id;
-            $actual_price = rand(15.5, 100.5);
-            $discount_factor = (10 / 100) * $actual_price; // 10% of actual price
+        foreach (range(1, 50) as $i) {
+
+            $category_id = rand(1,8);
+            $actual_price = rand(100, 10000);
+            $discount_factor = (10 / 100) * $actual_price;
             $discount_price = $actual_price - $discount_factor;
             $price = $discount_price;
 
             DB::table('products')->insert([
-                'title' => 'Product for ' . $category[0]->name,
+                'title' => 'Product ' . $category_id,
                 'imagePath' => 'https://www.komplett.no/img/p/800/c3e07913-3f53-4ef7-3879-1bba994c2209.jpg',
                 'description' => 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the',
                 'category_id' => $category_id,

@@ -13,8 +13,7 @@ class MainController extends Controller
     public function Index()
     {
         $products = Product::with(['category'])->paginate(6);
-        $categories = Category::get();
 
-        return view('index', compact('products', 'categories'));
+        return view('index', compact('products'));
     }
 }

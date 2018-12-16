@@ -1,4 +1,7 @@
 <?php
+use App\Models\Product;
+use Illuminate\Support\Facades\Input;
+
 Auth::routes();
 //
 //// User profile
@@ -53,3 +56,12 @@ Route::post('/checkout', [
 //    Route::resource('products', 'Product\AdminController');
 //    Route::resources('categories', 'Categories\AdminController');
 //});
+// TODO: Move to its own controller
+Route::any ( '/search', function () {
+    $q = Input::get ( 'q' );
+    $Product = Product::where ( 'title', 'LIKE', '%' . $q . '%' )->get ();
+    if (count ( $Product ) > 0)
+        return view ( 'partials.search' )->withDetails ( $Product )->withQuery ( $q );
+    else
+        return view ( 'partials.search' )->withMessage ( 'No Details found. Try to search again !' );
+} );

@@ -5,9 +5,12 @@
                 <img class="logo img-responsiv" src="{{ asset('images/CompanyName.png') }}" alt="Tilbake.">
             </a>
         </div>
-        <form class="form-inline my-2 my-lg-0">
-            <input type="search" class="form-control mr-sm-2" placeholder="Search" aria-label="Search">
-            <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Søk</button>
+        <form action="/search" method="POST" role="search" class="form-inline my-2 my-lg-0">
+            {{ csrf_field() }}
+            <input type="search" class="form-control mr-sm-2" name="q" placeholder="Search " aria-label="Search">
+            <span class="input-group-btn">
+            <button type="submit" class="btn btn-outline-success my-2 my-sm-0"><i class="fab fa-searchengin"></i> Søk</button>
+            </span>
         </form>
     </div>
 </nav>

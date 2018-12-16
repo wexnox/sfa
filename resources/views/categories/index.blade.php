@@ -24,7 +24,7 @@
                     @foreach($items as $item)
                         <tr>
                             <td><img id="showProduct" class="img-responsive" src="{{ $item->imagePath }}"
-                                     alt="{{ $product->title }}"></td>
+                                     alt="{{ $item->title }}"></td>
                             <td>{{ $item->title }}</td>
                             <td>{{ $item->description }}</td>
                             @if(is_bool($item->in_stock) <= 1)
@@ -42,7 +42,6 @@
                     @endforeach
                     </tbody>
                 </table>
-                {{--{{ $products->links() }}--}}
             @else
                 <h6>No products in storage</h6>
             @endif

@@ -47,6 +47,7 @@
             @else
                 <h6>No products in storage</h6>
             @endif
+            {{ $item->links() }}
         </div>
     </div>
 

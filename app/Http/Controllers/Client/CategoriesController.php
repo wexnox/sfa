@@ -13,7 +13,7 @@ class CategoriesController extends Controller
 
     public function index($id)
     {
-        $categories = Category::where('id', $id)->with('product')->get();
+        $categories = Category::with('product')->where('id', $id)->get();
 
         return view('categories.index', compact('categories'));
 

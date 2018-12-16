@@ -31,9 +31,9 @@
                         <i class="fas fa-list"></i> Alle produkter</a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        @foreach($categories as $category)
+                        @foreach($categoryList as $list)
                             <a class="dropdown-item"
-                               href="{{ url('category', $category->id) }}"> {{ $category->name }}</a>
+                               href="{{ url('category', $list->id) }}"> {{ $list->name }}</a>
                         @endforeach
                     </div>
 

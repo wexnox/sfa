@@ -5,9 +5,7 @@
 .btco-menu li > a {
     padding: 10px 15px;
     color: #000;
-
 }
-
 .btco-menu .active a:focus,
 .btco-menu li a:focus ,
 .navbar > .show > a:focus{

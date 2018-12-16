@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ URL('css/main.css') }}">
-    <link href="{{ URL ('css/bootstrap-4-navbar.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ URL ('css/bootstrap-4-navbar.css') }}" >
     @yield('styles')
 </head>
 <body>

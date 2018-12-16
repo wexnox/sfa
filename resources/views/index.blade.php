@@ -1,38 +1,41 @@
 @extends('layouts.app')
+
+@section('title', 'Produkter')
+
 @section('content')
 
     <div class="container">
 
         <div class="row">
             @foreach($products as $product)
-                <div class="col-sm-6 col-md-4">
-                    <div class="card">
 
-                        <a href="{{ route('product.show', $product->id) }}">
-                            <img class="card-img-top" src="{{ $product->imagePath }}" alt="Image of {{ $product->title }}">
-                        </a>
+                <div class="col-md-4">
 
-                        <div class="card-body">
+                    <figure class="card card-product">
 
+                        <div class="img-wrap"><img src="{{ $product->imagePath }}" alt="{{ $product->title }}"></div>
+
+                        <figcaption class="info-wrap">
                             <a href="{{ route('product.show', $product->id) }}">
-                                <h3 class="card-title">{{ $product->title }}</h3>
+                                <h3 class="title text-uppercase">{{ $product->title }}</h3>
                             </a>
-
-                            <p class="card-text">{{ $product->description }}.</p>
-                            <p class="card-text">
-                                <small class="text-muted">Lagerstatus:</small>
-                            </p>
-
-                            <div class="clearfix">
-                                <div class="pull-left price">{{ $product->price }},-</div>
-                                <a class="btn btn-primary pull-right btn-success" href="{{ route('product.addToCart',['id' => $product->id] ) }}">Kjøp</a>
+                            <p class="desc">{{ $product->description }}</p>
+                            <div class="rating-wrap">
+                                <div class="label-rating">154 På lager.</div>
                             </div>
-                            
+                        </figcaption>
+
+                        <div class="bottom-wrap">
+                            <a href="{{ route('product.addToCart',['id' => $product->id] ) }}" class="btn btn-sm btn-primary float-right">KJØP</a>	
+                            <div class="price-wrap h5">
+                                <span class="price-new font-weight-bold">Kr {{ $product->discount_price }},-</span> <del class="price-old">Kr {{ $product->original_price }},-</del>
+                            </div> 
                         </div>
 
-                    </div>
-                    <br>
+                    </figure>
+
                 </div>
+
             @endforeach
         </div>
 

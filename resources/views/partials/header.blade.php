@@ -5,7 +5,7 @@
                 <img class="logo img-responsiv" src="{{ asset('images/CompanyName.png') }}" alt="Tilbake.">
             </a>
         </div>
-        <form action="/search" method="POST" role="search" class="form-inline my-2 my-lg-0">
+        <form action="{{ route('search') }}" method="POST" role="search" class="form-inline my-2 my-lg-0">
             {{ csrf_field() }}
             <input type="search" class="form-control mr-sm-2" name="q" placeholder="Search " aria-label="Search">
             <span class="input-group-btn">

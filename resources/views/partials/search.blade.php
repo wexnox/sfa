@@ -1,25 +1,25 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        @if(isset($details))
-            <p> The Search results for your query <b> {{ $query }} </b> are :</p>
-            <h2>Sample User details</h2>
-            <table class="table table-striped">
-                <thead>
+        <p><b>{{ $q }}</b> ga følgene resultat:</p>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Tittel</th>
+                <th>Beskrivelse</th>
+                <th>Pris</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($products as $product)
                 <tr>
-                    <th>Name</th>
-                    {{--<th>Email</th>--}}
+                    <td>{{$product->title}}</td>
+                    <td>{{$product->description}}</td>
+                    <td>{{$product->discount_price}}</td>
                 </tr>
-                </thead>
-                <tbody>
-                @foreach($details as $product)
-                    <tr>
-                        <td>{{$product->title}}</td>
-                        {{--                    <td>{{$Product->Price}}</td>--}}
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
-        @endif
+            @endforeach
+            </tbody>
+        </table>
     </div>
 @endsection

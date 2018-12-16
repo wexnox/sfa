@@ -22,7 +22,7 @@ class CartController extends Controller
 
         $request->session()->put('cart', $cart);
 
-        return redirect()->route('product.index');
+        return redirect()->route('index');
     }
 
     public function getReduceByOne($id)

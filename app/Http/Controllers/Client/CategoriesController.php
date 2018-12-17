@@ -14,8 +14,10 @@ class CategoriesController extends Controller
     public function index($id)
     {
         $categories = Category::with('product')->where('id', $id)->get();
+        $productCount = Product::where('category_id', $id)->count();
+        $categoryName = $categories->first();
 
-        return view('categories.index', compact('categories'));
+        return view('categories.index', compact('categories', 'categoryName', 'productCount'));
 
     }
 

@@ -20,6 +20,7 @@ class ProductTableSeeder extends Seeder
             $discount_price = $actual_price - $discount_factor;
             $price = $discount_price;
 
+
             DB::table('products')->insert([
                 'title' => 'Product ' . $category_id,
                 'imagePath' => 'https://www.komplett.no/img/p/800/c3e07913-3f53-4ef7-3879-1bba994c2209.jpg',
@@ -28,7 +29,7 @@ class ProductTableSeeder extends Seeder
                 'original_price' => $actual_price,
                 'discount_price' => $discount_price,
                 'price' => $price,
-                'in_stock' => 1,
+                'in_stock' => rand(1,90),
                 'status' => 1,
                 'created_at' => Carbon::now(),
             ]);

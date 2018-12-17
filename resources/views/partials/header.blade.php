@@ -31,9 +31,12 @@
         <div class="collapse navbar-collapse" id="mobile">
             <ul class="navbar-nav mr-auto">
  
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/') }}">Forside</a>
+                </li>
+
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-list"></i> Alle produkter</a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -47,6 +50,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Våre beste kupp!</a>
                 </li>
+
             </ul>
         </div>
 

@@ -16,6 +16,7 @@
                 <th>Beskrivelse</th>
                 <th>Status</th>
                 <th>Pris</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -25,13 +26,16 @@
                     <td><img class="img-responsive" style="height:100px;" src="{{ $product->imagePath }}"></td>
                     <td>{{ $product->title }}</td>
                     <td>{{ $product->description }}</td>
-                    <td>På Lager: {{ $product->status }}</td>
-                    <td class="font-weight-bold">Kr {{ $product->discount_price }},-</td>
+                    <td style="width:120px;">På Lager: <b>{{ $product->in_stock ?? '0' }}</b></td>
+                    <td class="font-weight-bold" style="width:100px;">Kr {{ $product->discount_price }},-</td>
+                    <td>
+                        <a href="{{ route('product.addToCart',['id' => $product->id] ) }}" class="btn btn-sm btn-primary float-right">KJØP</a>
+                    </td>
                 </tr>
                 @endforeach
             @endforeach
         </tbody>
     </table>
 </div>
-{{ $categories->links() }}
+
 @endsection

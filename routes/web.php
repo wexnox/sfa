@@ -39,12 +39,12 @@ Route::get('/shopping-cart', [
 ]);
 //// Order Controller
 Route::get('/checkout', [
-    'uses' => 'Client\CartController@getCheckout',
+    'uses' => 'Client\OrderController@getCheckout',
     'as' => 'checkout',
     'middleware' => 'auth'
 ]);
 Route::post('/checkout', [
-    'uses' => 'Client\CartController@postCheckout',
+    'uses' => 'Client\OrderController@postCheckout',
     'as' => 'checkout',
     'middleware' => 'auth'
 ]);

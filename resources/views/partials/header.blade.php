@@ -1,30 +1,36 @@
 <nav class="navbar navbar-expand-md navbar-expand-lg navbar-light bg-light">
+
     <div class="container">
+
         <div class="col-sm-6">
-            <a class="navbar-brand" href="/" tabindex="20" title="Tilbake.">
+            <a class="navbar-brand" href="{{ url('/') }}" tabindex="20" title="Tilbake.">
                 <img class="logo img-responsiv" src="{{ asset('images/CompanyName.png') }}" alt="Tilbake.">
             </a>
         </div>
-        <form action="{{ route('search') }}" method="POST" role="search" class="form-inline my-2 my-lg-0">
+
+        <form action="{{ route('search') }}" method="POST" role="search" class="form-inline">
             {{ csrf_field() }}
-            <input type="search" class="form-control mr-sm-2" name="q" placeholder="Search " aria-label="Search">
+            <input type="search" class="form-control mr-sm-1" name="q" placeholder="Produkt søk ... " aria-label="Produkt søk ...">
             <span class="input-group-btn">
-            <button type="submit" class="btn btn-outline-success my-2 my-sm-0"><i class="fab fa-searchengin"></i> Søk</button>
+                <button type="submit" class="btn btn-outline-success my-2 my-sm-0"><i class="icon icon-search4"></i></button>
             </span>
         </form>
+
     </div>
+
 </nav>
 
 <nav class="navbar navbar-expand-md navbar-expand-lg navbar-light bg-light tekst">
+
     <div class="container">
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="mobile">
             <ul class="navbar-nav mr-auto">
-                {{--id="navbarDropdown"--}}
+ 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -32,8 +38,7 @@
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         @foreach($categoryList as $list)
-                            <a class="dropdown-item"
-                               href="{{ url('category', $list->id) }}"> {{ $list->name }}</a>
+                            <a class="dropdown-item text-uppercase" href="{{ url('category', $list->id) }}">{{ $list->name }}</a>
                         @endforeach
                     </div>
 
@@ -45,42 +50,39 @@
             </ul>
         </div>
 
-
-        <!-- Right Side Of Navbar -->
         <div class="pull-right">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse" id="mobile">
 
                 <ul class="navbar-nav mr-auto">
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('product.shoppingCart') }}"><i
-                                class="fas fa-shopping-cart"></i> Handlekurv <span
+                                class="icon icon-cart mr-2"></i> Handlekurv <span
                                 class="badge"> {{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span>
                         </a>
                     </li>
 
-                    {{--Start: UserDropdown Not logged inn--}}
                     <li class="nav-item dropdown">
                         @guest
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-user"></i> Brukerkonto
+                                <i class="icon icon-user mr-1"></i> Brukerkonto
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
                                 <a class="dropdown-item" href="{{ route('login') }}">
-                                    <i class="fas fa-sign-in-alt"></i> {{ __('Logg inn') }}
+                                    <i class="icon icon-key mr-2"></i> {{ __('Logg inn') }}
                                 </a>
                                 <a class="dropdown-item" href="{{ route('register') }}">
-                                    <i class="fas fa-user-plus"></i> {{ __('Register') }}
+                                    <i class="icon icon-user mr-2"></i> {{ __('Register') }}
                                 </a>
 
                             </div>
                         @endguest
-                    </li>{{--End: UserDropdown Not logged inn--}}
+                    </li>
 
-                    <li class="nav-item dropdown">{{--Start: UserDropdown logged inn--}}
+                    <li class="nav-item dropdown">
 
                         @auth
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -105,10 +107,12 @@
                                 </form>
                             </div>
                         @endauth
-                    </li>{{-- End: UserDropdown logged inn--}}
+                    </li>
 
                 </ul>
             </div>
         </div>
+
     </div>
+
 </nav>

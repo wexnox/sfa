@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('content')
     <div class="container">
         <p><b>{{ $q }}</b> ga følgene resultat:</p>

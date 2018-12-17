@@ -13,6 +13,7 @@ use Auth;
 use Illuminate\Support\Facades\Session;
 use Validator;
 use View;
+use Mail;
 
 class OrderController extends Controller
 {
@@ -31,6 +32,8 @@ class OrderController extends Controller
     //Stripe betaling
     public function postCheckout(Request $request)
     {
+        $user = Auth::user();
+
         if (!Session::has('cart')) {
             return redirect()->route('shop.shopping-cart');
         }
@@ -52,7 +55,10 @@ class OrderController extends Controller
             $order->name = $request->input('name');
             $order->payment_id = $charge->id;
 
-            Auth::user()->orders()->save($order);
+            $user->orders()->save($order);
+
+            Mail::to($user)->send(new OrderSuccess($order, $charge));
+
         } catch (Exception $e) {
             return redirect()->route('checkout')->with('error', $e->getMessage());
         }

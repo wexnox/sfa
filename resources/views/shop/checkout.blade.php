@@ -25,8 +25,11 @@
                     <label for="card-name">Card Holder Name</label>
                     <input type="text" id="card-name" class="form-control" required>
                 </div>
+
                 <div class="form-group col-md-12">
+
                     <label for="card-number">Credit Card Number</label>
+                    <i class="fab fa-cc-stripe"></i>
                     <p>Bruk Kort Nr: 4242 4242 4242 4242</p>
                     <input type="text" id="card-number" class="form-control" placeholder="4242 4242 4242 4242" required>
                 </div>

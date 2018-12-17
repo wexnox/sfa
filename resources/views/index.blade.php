@@ -26,10 +26,10 @@
                         </figcaption>
 
                         <div class="bottom-wrap">
-                            <a href="{{ route('product.addToCart',['id' => $product->id] ) }}" class="btn btn-sm btn-primary float-right">KJØP</a>	
+                            <a href="{{ route('product.addToCart',['id' => $product->id] ) }}" class="btn btn-sm btn-primary float-right">KJØP</a>
                             <div class="price-wrap h5">
                                 <span class="price-new font-weight-bold">Kr {{ $product->discount_price }},-</span> <del class="price-old">Kr {{ $product->original_price }},-</del>
-                            </div> 
+                            </div>
                         </div>
 
                     </figure>

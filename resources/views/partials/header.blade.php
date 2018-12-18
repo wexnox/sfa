@@ -60,7 +60,7 @@
                 <ul class="navbar-nav mr-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('product.shoppingCart') }}"><i
+                        <a class="nav-link" href="{{ route('shopping-cart') }}"><i
                                 class="icon icon-cart mr-2"></i> Handlekurv <span
                                 class="badge"> {{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span>
                         </a>

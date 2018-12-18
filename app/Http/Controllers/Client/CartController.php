@@ -13,6 +13,18 @@ use View;
 
 class CartController extends Controller
 {
+    public function shoppingCart()
+    {
+        if (!session::has('cart')) {
+            return view('shop.shopping-cart');
+        }
+
+        $oldCart = Session::get('cart');
+        $cart    = new Cart($oldCart);
+
+        return view('shop.shopping-cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+    }
+
     public function getAddToCart(Request $request, $id)
     {
         $product = Product::findOrFail($id);
@@ -37,7 +49,7 @@ class CartController extends Controller
             Session::forget('cart');
         }
 
-        return redirect()->route('product.shoppingCart');
+        return redirect()->route('product.cart');
     }
 
     public function getRemoveItem($id)
@@ -53,17 +65,5 @@ class CartController extends Controller
         }
 
         return redirect()->route('product.shoppingCart');
-    }
-
-    public function getCart()
-    {
-        if (!session::has('cart')) {
-            return view('shop.shopping-cart');
-        }
-
-        $oldCart = Session::get('cart');
-        $cart    = new Cart($oldCart);
-        
-        return view('shop.shopping-cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
     }
 }

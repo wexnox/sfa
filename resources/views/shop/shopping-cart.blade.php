@@ -14,14 +14,14 @@
                             <span class="badge">{{ $product['qty'] }}</span>
                             <strong>{{ $product['item']['title'] }}</strong>
                             <span class="label label-success">Kr {{ $product['price'] }},-</span>
-                            <a href="{{ route('product.reduceByOne', ['id' => $product['item']['id']]) }}">Fjern</a>
+                            <a href="{{ route('cart.reduce', ['id' => $product['item']['id']]) }}">Fjern</a>
                         </li>
                     @endforeach
                 </ul>
             </div>
 
             <div class="col-md-12 text-right pr-3 mt-2 text-uppercase">
-                <a href="{{ route('product.remove', ['id' => $product['item']['id']]) }}">Tøm Handlekurv</a>
+                <a href="{{ route('cart.remove', ['id' => $product['item']['id']]) }}">Tøm Handlekurv</a>
             </div>
 
         </div>

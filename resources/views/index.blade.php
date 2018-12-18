@@ -16,7 +16,7 @@
                         <div class="img-wrap"><img src="{{ $product->imagePath }}" alt="{{ $product->title }}"></div>
 
                         <figcaption class="info-wrap">
-                            <a href="{{ route('product.show', $product->id) }}">
+                            <a href="{{ route('products', $product->id) }}">
                                 <h3 class="title text-uppercase">{{ $product->title }}</h3>
                             </a>
                             <p class="desc">{{ $product->description }}</p>
@@ -26,7 +26,7 @@
                         </figcaption>
 
                         <div class="bottom-wrap">
-                            <a href="{{ route('product.addToCart',['id' => $product->id] ) }}" class="btn btn-sm btn-primary float-right">KJØP</a>
+                            <a href="{{ route('cart.add',['id' => $product->id] ) }}" class="btn btn-sm btn-primary float-right">KJØP</a>
                             <div class="price-wrap h5">
                                 <span class="price-new font-weight-bold">Kr {{ $product->discount_price }},-</span> <del class="price-old">Kr {{ $product->original_price }},-</del>
                             </div>

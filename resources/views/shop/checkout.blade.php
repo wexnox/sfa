@@ -4,9 +4,12 @@
 
 <div class="row">
 
+    <div class="col-md-12" id="#card-errors">
+    </div>
+
     <div class="col-md-6">
 
-        <form action="{{ route('checkout') }}" method="post" id="checkout-form">
+        <form action="{{ route('checkout') }}" method="post" id="payment-form">
             @csrf
 
             <div class="form-group">
@@ -19,39 +22,9 @@
                 <input type="text" id="address" name="address" class="form-control" required>
             </div>
 
-            <div class="form-group">
-                <label for="card-name">Kortholders navn</label>
-                <input type="text" id="card-name" class="form-control" required>
-            </div>
+            <div id="card-element">
 
-            <div class="form-group">
-                <label for="card-number">Kort nummer</label>
-                <i class="fab fa-cc-stripe"></i>
-                <input type="number" id="card-number" class="form-control" placeholder="4242 4242 4242 4242" value="4242 4242 4242 4242" required>
-            </div>
 
-            <div class="row">
-
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="card-expiry-month">Utløps måned</label>
-                        <input type="text" id="card-expiry-month" class="form-control" required>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="card-expiry-year">Utløps År</label>
-                        <input type="text" id="card-expiry-year" class="form-control" required>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="card-cvc">CVC</label>
-                        <input type="text" id="card-cvc" class="form-control" required>
-                    </div>                
-                </div>
 
             </div>
 
@@ -99,7 +72,7 @@
 
 @section('scripts')
 
-    <script src="https://js.stripe.com/v2/"></script>
-    <script src="{{ URL::to('js/checkout.js') }}"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="{{ asset('js/checkout.js') }}"></script>
 
 @endsection

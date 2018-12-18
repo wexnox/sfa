@@ -34,7 +34,7 @@ class CartController extends Controller
 
         $request->session()->put('cart', $cart);
 
-        return redirect()->route('index');
+        return redirect()->route('/');
     }
 
     public function reduceItem($id)

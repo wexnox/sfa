@@ -99,7 +99,7 @@
 
 @section('scripts')
 
-    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://js.stripe.com/v2/"></script>
     <script src="{{ URL::to('js/checkout.js') }}"></script>
 
 @endsection

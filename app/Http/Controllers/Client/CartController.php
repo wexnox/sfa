@@ -25,7 +25,7 @@ class CartController extends Controller
         return view('shop.shopping-cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
     }
 
-    public function getAddToCart(Request $request, $id)
+    public function addItem(Request $request, $id)
     {
         $product = Product::findOrFail($id);
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
@@ -37,7 +37,7 @@ class CartController extends Controller
         return redirect()->route('index');
     }
 
-    public function getReduceByOne($id)
+    public function reduceItem($id)
     {
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart    = new Cart($oldCart);
@@ -49,10 +49,10 @@ class CartController extends Controller
             Session::forget('cart');
         }
 
-        return redirect()->route('product.cart');
+        return redirect()->route('shopping-cart');
     }
 
-    public function getRemoveItem($id)
+    public function removeItem($id)
     {
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart    = new Cart($oldCart);
@@ -64,6 +64,6 @@ class CartController extends Controller
             Session::forget('cart');
         }
 
-        return redirect()->route('product.shoppingCart');
+        return redirect()->route('shopping-cart');
     }
 }

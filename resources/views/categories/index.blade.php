@@ -29,7 +29,7 @@
                     <td style="width:120px;">På Lager: <b>{{ $product->in_stock ?? '0' }}</b></td>
                     <td class="font-weight-bold" style="width:100px;">Kr {{ $product->discount_price }},-</td>
                     <td>
-                        <a href="{{ route('product.addToCart',['id' => $product->id] ) }}" class="btn btn-sm btn-primary float-right">KJØP</a>
+                        <a href="{{ route('cart.add',['id' => $product->id] ) }}" class="btn btn-sm btn-primary float-right">KJØP</a>
                     </td>
                 </tr>
                 @endforeach

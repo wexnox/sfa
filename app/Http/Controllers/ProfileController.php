@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,9 +22,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        $orders = Order::where('user_id', Auth::user()->id)->get();
+        $orders = Order::where('user_id', $id)->get();
 
         return view('user.profile', compact('orders'));
     }

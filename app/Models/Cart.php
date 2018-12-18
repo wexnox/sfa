@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cart extends Model
 {
-    public $items = null;
-    public $totalQty = 0;
+    public $items      = null;
+    public $totalQty   = 0;
     public $totalPrice = 0;
 
     /**
@@ -17,8 +17,8 @@ class Cart extends Model
     public function __construct($oldCart)
     {
         if ($oldCart) {
-            $this->items = $oldCart->items;
-            $this->totalQty = $oldCart->totalQty;
+            $this->items      = $oldCart->items;
+            $this->totalQty   = $oldCart->totalQty;
             $this->totalPrice = $oldCart->totalPrice;
         }
     }
@@ -32,9 +32,9 @@ class Cart extends Model
                 $storedItem = $this->items[$id];
             }
         }
-        $storedItem ['qty']++;
-        $storedItem ['price'] = $item->price * $storedItem['qty'];
-        $this->items[$id] = $storedItem;
+        $storedItem['qty']++;
+        $storedItem['price'] = $item->price * $storedItem['qty'];
+        $this->items[$id]    = $storedItem;
         $this->totalQty++;
         $this->totalPrice += $item->price;
     }

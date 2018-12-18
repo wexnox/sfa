@@ -30,6 +30,6 @@ class User extends Authenticatable
 
     public function orders()
     {
-        return $this->hasMany('App\Models\Order');
+        return $this->hasMany(Order::class);
     }
 }

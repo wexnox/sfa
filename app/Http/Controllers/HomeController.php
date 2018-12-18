@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Auth;
+use App\Models\Order;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -24,12 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $orders = Auth::user()->orders;
-        $orders->transform(function ($order, $key) {
-            $order->cart = unserialize($order->cart);
-            return $order;
-        });
+        $orders = Order::where('user_id', Auth::user()->id)->get();
 
-        return view('user.profile', ['orders' => $orders]);
+        return view('user.profile', compact('orders'));
     }
 }

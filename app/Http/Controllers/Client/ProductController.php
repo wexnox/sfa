@@ -11,17 +11,14 @@ use View;
 
 class ProductController extends Controller
 {
-
     public function show($id)
     {
-        // get the product
-        $product = Product::findOrFail($id);
+
+        $product    = Product::findOrFail($id);
         $categories = Category::all();
 
-        //show the view and pass the product to it
         return View('products.show')
             ->with('product', $product)
             ->with('categories', $categories);
     }
-
 }

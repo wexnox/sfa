@@ -168,3 +168,8 @@ footer {
 .card-product .price-old {
     color: #999;
 }
+
+label {
+    font-weight: bold;
+    text-transform: uppercase;
+}

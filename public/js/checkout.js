@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    
     // Create a Stripe client.
     var stripe = Stripe('pk_test_xSAa0Hev7Kw7zd9TdmA8dz3P');
 
@@ -11,7 +11,6 @@ $(document).ready(function () {
     var style = {
         base: {
             color: '#32325d',
-            lineHeight: '18px',
             fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
             fontSmoothing: 'antialiased',
             fontSize: '16px',

@@ -4,8 +4,7 @@
 
 <div class="row">
 
-    <div class="col-md-12" id="#card-errors">
-    </div>
+    <div id="card-errors" role="alert"></div>
 
     <div class="col-md-6">
 
@@ -18,17 +17,14 @@
             </div>
 
             <div class="form-group">
-                <label for="address">Adresse</label>
-                <input type="text" id="address" name="address" class="form-control" required>
+                <label for="email">Epost</label>
+                <input type="text" id="email" name="email" class="form-control" required>
             </div>
 
             <div id="card-element">
-
-
-
             </div>
 
-            <button type="submit" class="btn btn-block btn-success text-uppercase">Betal</button>
+            <button class="btn btn-block btn-success text-uppercase">Betal</button>
 
         </form>
 

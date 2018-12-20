@@ -13,25 +13,16 @@
                 {{-- TODO: Legge til fult navn--}}
                 <div class="form-group">
                     <label for="name">Fult navn</label>
-                    <input type="text" id="name" name="name" value="{{ Auth::user()->name }}" class="form-control"
+                    <input type="text" id="name" name="name" class="form-control"
                            rrequired>
                 </div>
 
                 <div class="form-group">
                     <label for="email">Epost</label>
-                    <input type="text" id="email" name="email" value="{{ Auth::user()->email }}" class="form-control"
+                    <input type="text" id="email" name="email" class="form-control"
                            required>
                 </div>
-                {{--<h1>Shipping detaljer</h1>--}}
-                {{--<div class="form-group">--}}
-                {{--<label for="email">Adresse</label>--}}
-                {{--<input type="text" id="adresse" name="addresse" value="{{ Auth::user()->addresse }}" class="form-control"--}}
-                {{--required>--}}
-                {{--</div>--}}
-                {{--<div class="form-group">--}}
-                {{--<label for="email">Postkode</label>--}}
-                {{--<input type="text" id="postkode" name="postkode" value="{{ Auth::user()->postkode }}" class="form-control" required>--}}
-                {{--</div>--}}
+
                 {{--TODO: melding på sms eller epost ved leverings oppdatering etc--}}
                 <i class="fab fa-cc-visa"></i>
                 <i class="fab fa-cc-stripe"></i>

@@ -17,13 +17,18 @@
             </div>
 
             <div class="form-group">
-                <label for="email">Epost</label>
+                <label for="email">Epost </label>
                 <input type="text" id="email" name="email" class="form-control" required>
             </div>
-
+            <i class="fab fa-cc-visa"></i>
+            <i class="fab fa-cc-stripe"></i>
+            <i class="fab fa-cc-paypal"></i>
+            <i class="fab fa-cc-amex"></i>
+            <i class="fab fa-cc-discover"></i>
             <div id="card-element">
             </div>
-
+            <i class="fab fa-ethereum"></i>
+            <i class="fab fa-bitcoin"></i>
             <button class="btn btn-block btn-success text-uppercase">Betal</button>
 
         </form>

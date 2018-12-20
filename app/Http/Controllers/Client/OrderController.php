@@ -71,7 +71,7 @@ class OrderController extends Controller
 //                'name'       => $request->input('name'),
 //                'payment_id' => $charge->id
 //            ]);
-            Auth::user()->orders()->save($order);
+//            Auth::user()->orders()->save($order);
 //            Mail::to($user)->send(new OrderSuccess($order, $charge));
             Session::forget('cart');
         

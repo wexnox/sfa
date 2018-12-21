@@ -40,43 +40,32 @@ class OrderController extends Controller
 
         $currentCart = Session::get('cart');
         $cart        = new Cart($currentCart);
-        
+
         try {
             Stripe::setApiKey('sk_test_MrslyqQJmMdewtvbysC41uMy');
-        
-//            $customer = Customer::create(array(
-//                'email' => $request->email,
-//                'source' => $request->stripeToken
-//            ));
-            $charge = Charge::create(array(
-                'amount' => $cart->totalPrice,
-                'currency' => 'NOK',
-                'source' => $request->input('stripeToken'),
-                'description' => 'Netthandel',
-            ));
-//            $charge = Charge::create([
-//                'customer' => $customer->id,
-//                'amount'      => $cart->totalPrice,
-//                'currency'    => 'NOK',
-//                'description' => 'Netthandel',
-//            ]);
-            $order = new Order();
-            $order->cart = serialize($cart);
-            $order->address = $request->input('address');
-            $order->name = $request->input('name');
-            $order->payment_id = $charge->id;
 
-//            $order = Order::create([
-//                'cart'       => serialize($cart),
-//                'name'       => $request->input('name'),
-//                'payment_id' => $charge->id
-//            ]);
-//            Auth::user()->orders()->save($order);
-//            Mail::to($user)->send(new OrderSuccess($order, $charge));
+            $customer = Customer::create(array(
+                'email' => $request->email,
+                'source' => $request->stripeToken
+            ));
+//dd($request)->all;
+            $charge = Charge::create([
+                'customer'    => $customer->id,
+                'amount'      => $cart->totalPrice,
+                'currency'    => 'NOK',
+                'description' => 'Netthandel',
+            ]);
+            dd($request)->all;
+            $order = Order::create([
+                'cart'       => serialize($cart),
+                'name'       => $request->input('name'),
+                'payment_id' => $charge->id
+            ]);
+            dd($request)->all;
+            Mail::to($user)->send(new OrderSuccess($order, $charge));
             Session::forget('cart');
-        
-            return redirect()->route('/')->with('success', 'Successfully purchased products');
-        
+            return redirect()->route('index')->with('success', 'Successfully purchased products');
+
         } catch (\Exception $ex) {
             return $ex->getMessage();
         }

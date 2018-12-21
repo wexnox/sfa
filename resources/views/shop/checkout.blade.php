@@ -16,7 +16,7 @@
                     <input type="text" id="name" name="name" value="{{ Auth::user()->name }}" class="form-control"
                            rrequired>
                 </div>
-
+4242424242424242
                 <div class="form-group">
                     <label for="email">Epost</label>
                     <input type="text" id="email" name="email" value="{{ Auth::user()->email }}" class="form-control"

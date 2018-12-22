@@ -1,6 +1,6 @@
 <?php
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::name('/')->get('/', 'Client\MainController@index');
 
@@ -48,3 +48,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::name('profile')->get('profile/{id}', 'ProfileController@index');
 
 });
+
+

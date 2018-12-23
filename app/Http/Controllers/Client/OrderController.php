@@ -58,7 +58,7 @@ class OrderController extends Controller
 //            dd($request)->all;
             $order = new Order();
             $order->cart = serialize($cart);
-            $order->address = $request->input('adresss');
+            $order->address = $request->input('address');
             $order->name = $request->input('name');
             $order->payment_id = $charge->id;
 

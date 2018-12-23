@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -22,9 +23,15 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        $orders = Order::where('user_id', $id)->get();
+        $orders = Auth::user()->orders;
+        $orders->transform(function ($order, $key){
+            $order->cart=unserialize($order->cart);
+            return $order;
+        });
+//        TODO: Note this next line breaks it,
+//        $orders = Order::where('user_id', $id)->get();
 
         return view('user.profile', compact('orders'));
     }

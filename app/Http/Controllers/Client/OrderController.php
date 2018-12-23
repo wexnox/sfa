@@ -25,11 +25,11 @@ class OrderController extends Controller
         }
 
         $oldCart = Session::get('cart');
-        $cart    = new Cart($oldCart);
+        $cart = new Cart($oldCart);
 
         $products = $cart->items;
-        $total    = $cart->totalPrice;
-        $tax      = $total * 25 / 100;
+        $total = $cart->totalPrice;
+        $tax = $total * 25 / 100;
 
         return view('shop.checkout', compact('products', 'total', 'tax'));
     }
@@ -39,7 +39,7 @@ class OrderController extends Controller
         $user = Auth::user();
 
         $currentCart = Session::get('cart');
-        $cart        = new Cart($currentCart);
+        $cart = new Cart($currentCart);
 
         try {
             Stripe::setApiKey('sk_test_MrslyqQJmMdewtvbysC41uMy');
@@ -50,21 +50,24 @@ class OrderController extends Controller
             ));
 //dd($request)->all;
             $charge = Charge::create([
-                'customer'    => $customer->id,
-                'amount'      => $cart->totalPrice,
-                'currency'    => 'NOK',
+                'customer' => $customer->id,
+                'amount' => $cart->totalPrice,
+                'currency' => 'NOK',
                 'description' => 'Netthandel',
             ]);
-            dd($request)->all;
-            $order = Order::create([
-                'cart'       => serialize($cart),
-                'name'       => $request->input('name'),
-                'payment_id' => $charge->id
-            ]);
-            dd($request)->all;
-            Mail::to($user)->send(new OrderSuccess($order, $charge));
+//            dd($request)->all;
+            $order = new Order();
+            $order->cart = serialize($cart);
+            $order->address = $request->input('adresss');
+            $order->name = $request->input('name');
+            $order->payment_id = $charge->id;
+
+//            dd($request)->all;
+            Auth::user()->orders()->save($order);
+//            TODO: Need to fix OrderSuccesss
+//            Mail::to($user)->send(new OrderSuccess($order, $charge));
             Session::forget('cart');
-            return redirect()->route('index')->with('success', 'Successfully purchased products');
+            return redirect()->route('/')->with('success', 'Successfully purchased products');
 
         } catch (\Exception $ex) {
             return $ex->getMessage();

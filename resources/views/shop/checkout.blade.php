@@ -13,14 +13,16 @@
                 {{-- TODO: Legge til fult navn--}}
                 <div class="form-group">
                     <label for="name">Fult navn</label>
-                    <input type="text" id="name" name="name" class="form-control"
-                           rrequired>
+                    <input type="text" id="name" name="name" class="form-control" rrequired>
                 </div>
-4242424242424242
+                <div class="form-group">
+                    <label for="address">Adresse</label>
+                    <input type="text" id="address" name="adresse" class="form-control" required>
+                </div>
+                4242424242424242
                 <div class="form-group">
                     <label for="email">Epost</label>
-                    <input type="text" id="email" name="email" class="form-control"
-                           required>
+                    <input type="text" id="email" name="email" class="form-control" required>
                 </div>
 
                 {{--TODO: melding på sms eller epost ved leverings oppdatering etc--}}

@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 
 class MainController extends Controller
 {
-    public function Index()
+    public function index()
     {
         $products = Product::with(['category'])->paginate(6);
 
